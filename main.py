@@ -3,7 +3,6 @@ from caesar import rotate_string
 
 form = """
     <!DOCTYPE html>
-
     <html>
         <head>
             <style>
@@ -32,9 +31,7 @@ form = """
                 <label>Rotate By:
                     <input type="text" name="rot">
                 </label>
-                <p class="errmsg">{errmsg}</p>
-                <textarea type="text" name="text">{txtarea}
-                </textarea>
+                <textarea type="text" name="text">{txtarea}</textarea>
                 <input type="submit" text="Submit Query">
             </form>
         </body>
@@ -55,13 +52,8 @@ def index():
 @app.route("/", methods=['POST'])
 def process():
     text = request.form['text']
-    try:
-        rot = int(request.form['rot'])
-    except:
-        errmsg = "Pleae use only an integer for the <em>Rotate By</em> value!"
-        return form.format(errmsg=errmsg,txtarea=text)
+    rot = int(request.form['rot'])
     retvalue = encrypt(text, rot)
     return form.format(errmsg='',txtarea=retvalue)
-
 
 app.run()

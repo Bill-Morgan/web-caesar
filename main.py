@@ -29,7 +29,7 @@ form = """
         <body>
             <form method="POST">
                 <label>Rotate By:
-                    <input type="text" name="rot">
+                    <input type="text" name="rot" value=0>
                 </label>
                 <textarea type="text" name="text">{txtarea}</textarea>
                 <input type="submit" text="Submit Query">
